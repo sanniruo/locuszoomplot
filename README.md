@@ -4,7 +4,7 @@ Script to create locuszoomplots with GWAS and fine-mapping results.
 
 Rscript scripts/locuszoomplot.R -h
 
-Options:
+Options available:
 
 
 	--file=FILE
@@ -20,10 +20,10 @@ Options:
 		Prefix for the plots name.
 
 	--Nrows=NROWS
-		Number of rows for genes. Default is 4.
+		Number of rows for genes. Default is 4. (optional)
 
 	--proteinCodingOnly=PROTEINCODINGONLY
-		Whether to print only protein coding genes. Default is TRUE.
+		Whether to print only protein coding genes. Default is TRUE. (optional)
 
 	-h, --help
 		Show this help message and exit

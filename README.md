@@ -2,6 +2,7 @@
 
 Script to create locuszoomplots with GWAS and fine-mapping results.
 
+Example usage for help page:
 Rscript scripts/locuszoomplot.R -h
 
 Options available:

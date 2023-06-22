@@ -23,4 +23,4 @@ Optional fields:
 
 --proteinCodingOnly	Whether to print only protein-coding genes. The default is TRUE. (optional)
 
--h Show this help message and exit
+--help Show this help message and exit

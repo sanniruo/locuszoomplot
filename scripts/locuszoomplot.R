@@ -77,7 +77,19 @@ d$shape[lead_index] = 23
 d$size <- 2
 d$size[lead_index] <- 2.8
 n_cs<-length(table(d$cs))-1
-d$shape_cs<-ifelse(d$cs==1, 23, ifelse(d$cs==2, 22, 21))
+if (n_cs>=4) {
+  print("More than 4 credible sets, credible sets beyond 4th won't be displayed.")
+}
+pchs<-c(23, 22, 24, 25)
+pchs_to_legend= c(pchs[1:n_cs], 21)
+legends<-c()
+for(i in 1:n_cs){
+  legends[i]<-paste0("In credible set ",i,"")
+}
+legends[n_cs+1] <-"Not in any credible set"
+
+
+d$shape_cs<-ifelse(d$cs==1, 23, ifelse(d$cs==2, 22, ifelse(d$cs == 3, 24, ifelse(d$cs =4, 25, 21))))
 max_prob = max(d$prob)+0.1*max(d$prob)
 rsid_lead=d$rsid[lead_index]
 
@@ -145,6 +157,7 @@ cmd = paste0("legend( 'topleft',
 eval(parse(text=cmd))
 legend('topright',
        pch = c(19, 15),
+       cex = 1.7,
        legend = c("Non-coding", "Coding"))
 
 par(new = T)
@@ -161,8 +174,10 @@ plot(d$position/1000000, d$prob,
      ylab = "Posterior Incusion Probability (PIP)",
      xlab =paste0("Position in chromosome ",chrom," (Mb)"))
 legend('topright',
-       pch = c(23, 22, 21),
-       legend = c("In CS #1", "In CS #2", "Not in any CS"))
+       pch = pchs_to_legend,
+       legend = legends,
+       cex = 1.7,
+       pt.bg = "darkblue")
 par(new = T)
 par(fig=c(0,10,0,2)/10)
 par(mar=c(0.5,5,0.5,5))

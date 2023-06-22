@@ -7,24 +7,20 @@ Rscript scripts/locuszoomplot.R -h
 
 Options available:
 
+Mandatory fields:
 
-	--file=FILE
-		Results files from SUSIE. (example_files/FEMALE_INFERT_NEW.chr6.149730382-152730382.susie.snp)
+--files	Results files from SUSIE. (example_files/FEMALE_INFERT_NEW.chr6.149730382-152730382.susie.snp)
 
-	--annofile=ANNOFILE
-		Variant annotation file including most severe consequence and rsid.
+--annofile	Variant annotation file including most severe consequence and rsid.
 
-	--geneFile=GENEFILE
-		File with gene information. (example_files/Gene_data_for_locuszoomplot)
+--geneFile	File with gene information. (example_files/Gene_data_for_locuszoomplot)
 
-	--PlotName=PLOTNAME
-		Prefix for the plot's name.
+--PlotName	Prefix for the plot's name.
 
-	--Nrows=NROWS
-		The number of rows for genes. Default is 4. (optional)
+Optional fields:
 
-	--proteinCodingOnly=PROTEINCODINGONLY
-		Whether to print only protein-coding genes. The default is TRUE. (optional)
+--Nrows	The number of rows for genes. Default is 4. (optional)
 
-	-h, --help
-		Show this help message and exit
+--proteinCodingOnly	Whether to print only protein-coding genes. The default is TRUE. (optional)
+
+-h Show this help message and exit

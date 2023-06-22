@@ -5,7 +5,9 @@ Script to create locuszoomplots with GWAS and fine-mapping results.
 Example usage for the help page:
 Rscript scripts/locuszoomplot.R -h
 
+
 Options available:
+
 
 Mandatory fields:
 
@@ -16,6 +18,7 @@ Mandatory fields:
 --geneFile	File with gene information. (example_files/Gene_data_for_locuszoomplot)
 
 --PlotName	Prefix for the plot's name.
+
 
 Optional fields:
 

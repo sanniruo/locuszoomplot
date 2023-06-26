@@ -15,7 +15,7 @@ Script to create locuszoomplot with GWAS and fine-mapping results.
 
 ```
   --file=FILE
-    Results files from susie (example_files/FEMALE_INFERT_NEW.chr6.149730382-152730382.susie.snp)..
+    Results files from susie (example_files/FEMALE_INFERT_NEW.chr6.149730382-152730382.susie.snp).
 
   --annofile=ANNOFILE
     Variant annotation file including most severe consequence and rsid.

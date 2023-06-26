@@ -6,7 +6,6 @@ library(optparse)
 library(data.table)
 library(dplyr)
 library(readr)
-library(XLConnect)
 library(httr)
 library(xml2)
 library(rlist)
@@ -23,9 +22,11 @@ option_list <- list(
   make_option("--PlotName", type = "character", default="",
               help="Prefix for the plots name."),
   make_option("--Nrows", type = "integer", default="4",
-              help="Number of rows for genes. Default is 4."),
+              help="Number of rows for genes. Optional. Default is 4."),
+  make_option("--PlotTitle", type = "character", default = "",
+              help = "Title to give for a plot (will be plotted in italics). Optional. Default is empty."),
   make_option("--proteinCodingOnly", type = "logical", default="T",
-              help="Whether to print only protein coding genes. Default is TRUE."))
+              help="Whether to print only protein coding genes. Optional. Default is TRUE."))
 
 parser <- OptionParser(usage="%prog [options]", option_list=option_list)
 args <- parse_args(parser, positional_arguments = 0)
@@ -76,6 +77,7 @@ d$shape = ifelse(d$most_severe%in%coding, 22, 21)
 d$shape[lead_index] = 23
 d$size <- 2
 d$size[lead_index] <- 2.8
+
 n_cs<-length(table(d$cs))-1
 if (n_cs>=4) {
   print("More than 4 credible sets, credible sets beyond 4th won't be displayed.")
@@ -88,8 +90,8 @@ for(i in 1:n_cs){
 }
 legends[n_cs+1] <-"Not in any credible set"
 
+d$shape_cs<-ifelse(d$cs==1, 23, ifelse(d$cs==2, 22, ifelse(d$cs==3, 24, ifelse(d$cs==4, 25, 21))))
 
-d$shape_cs<-ifelse(d$cs==1, 23, ifelse(d$cs==2, 22, ifelse(d$cs == 3, 24, ifelse(d$cs =4, 25, 21))))
 max_prob = max(d$prob)+0.1*max(d$prob)
 rsid_lead=d$rsid[lead_index]
 
@@ -116,21 +118,24 @@ gene$gene_name<-ifelse(gene$direction=="-1",
                        paste0("expression('' %<-% italic(", GENE_plot, "))"),
                        paste0("expression(italic(", GENE_plot, ") %->% '')"))
 
-cmd = paste0("pdf('",opt$PlotName,"_",rsid_lead,".pdf', 14, 12, bg = 'white')")
+cmd = paste0("tiff('",opt$PlotName,"_",rsid_lead,".tiff', 1400, 1200, bg = 'white')")
 eval(parse(text = cmd))
 par(fig=c(0,10,5,10)/10)
 par(mar=c(0.5,5,4,5))
-plot(d$position/1000000, -log10(d$p),
+cmd = paste0("plot(d$position/1000000, -log10(d$p),
      ylim = c(0, max),
      bg = d$col,
-     xaxs="i",
-     yaxs="i",
+     xaxs='i',
+     yaxs='i',
      las = 1,
+     main = substitute(paste(italic('",opt$PlotTitle,"'))),
+     cex.main = 1.5,
      pch = d$shape,
      cex = d$size,
      xaxt='n',
-     ylab = "-log10(P-value)",
-     xlab = "")
+     ylab = '-log10(P-value)',
+     xlab = '')")
+eval(parse(text = cmd))
 abline(h = -log10(5E-8), lty = 2, col = "grey40")
 points(d$position[d$col=='#722CC5']/1000000, -log10(d$p[d$col=='#722CC5']),
        bg = d$col[d$col=='#722CC5'],
@@ -173,10 +178,10 @@ plot(d$position/1000000, d$prob,
      cex = d$size*0.7,
      ylab = "Posterior Incusion Probability (PIP)",
      xlab =paste0("Position in chromosome ",chrom," (Mb)"))
-legend('topright',
+legend('topleft',
        pch = pchs_to_legend,
        legend = legends,
-       cex = 1.7,
+       cex = 1.5,
        pt.bg = "darkblue")
 par(new = T)
 par(fig=c(0,10,0,2)/10)

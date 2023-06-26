@@ -9,7 +9,7 @@ Script to create locuszoomplot with GWAS and fine-mapping results.
 `Rscript scripts/locuszoomplot.R -`
 
 
-## Options available:
+## Parameters available:
 
 ### Mandatory arguments
 
@@ -28,7 +28,7 @@ Script to create locuszoomplot with GWAS and fine-mapping results.
 
 ```
 
-### Pptional arguments:
+### pptional arguments:
 
 ```
   -h, --help            show this help message and exit

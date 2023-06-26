@@ -31,8 +31,10 @@ Script to create locuszoomplot with GWAS and fine-mapping results.
 ### pptional arguments:
 
 ```
-  -h, --help            show this help message and exit
-    --Nrows=NROWS
+  -h, --help
+    Show this help message and exit
+
+  --Nrows=NROWS
     Number of rows for genes. Optional. Default is 4.
 
   --PlotTitle=PLOTTITLE

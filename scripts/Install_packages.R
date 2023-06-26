@@ -1,0 +1,8 @@
+install.packages('optparse', repos='http://cran.rstudio.com/')
+install.packages('data.table', repos='http://cran.rstudio.com/')
+install.packages('dplyr', repos='http://cran.rstudio.com/')
+install.packages('readr', repos='http://cran.rstudio.com/')
+install.packages('httr', repos='http://cran.rstudio.com/')
+install.packages('xml2', repos='http://cran.rstudio.com/')
+install.packages('rlist', repos='http://cran.rstudio.com/')
+install.packages('jsonlite', repos='http://cran.rstudio.com/')

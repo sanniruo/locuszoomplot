@@ -118,7 +118,7 @@ gene$gene_name<-ifelse(gene$direction=="-1",
                        paste0("expression('' %<-% italic(", GENE_plot, "))"),
                        paste0("expression(italic(", GENE_plot, ") %->% '')"))
 
-cmd = paste0("tiff('",opt$PlotName,"_",rsid_lead,".tiff', 1008, 864, bg = 'white')")
+cmd = paste0("tiff('",opt$PlotName,"_",rsid_lead,".tiff', 14, 12, res = 300, units = 'in', bg = 'white')")
 eval(parse(text = cmd))
 par(fig=c(0,10,5,10)/10)
 par(mar=c(0.5,5,4,5))

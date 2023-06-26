@@ -11,8 +11,9 @@ Rscript scripts/locuszoomplot.R -h
 
 ## Options available:
 
+### Mandatory arguments
+
 ```
-mandatory arguments
   --file=FILE
     Results files from susie (example_files/FEMALE_INFERT_NEW.chr6.149730382-152730382.susie.snp)..
 
@@ -25,7 +26,11 @@ mandatory arguments
   --PlotName=PLOTNAME
     Prefix for the plots name.
 
-optional arguments:
+```
+
+### Pptional arguments:
+
+```
   -h, --help            show this help message and exit
     --Nrows=NROWS
     Number of rows for genes. Optional. Default is 4.

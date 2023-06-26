@@ -1,11 +1,11 @@
 # locuszoomplot
 
-Script to create locuszoomplots with GWAS and fine-mapping results.
+Script to create locuszoomplot with GWAS and fine-mapping results.
 
-###Install all needed R packages:
+##Install all needed R packages:
 Rscript scripts/Install_packages.R 
 
-###Example usage for showing the help page:
+##Example usage for showing the help page:
 Rscript scripts/locuszoomplot.R -h
 
 

@@ -11,19 +11,32 @@ Options available:
 
 Mandatory fields:
 
---files	Results files from SUSIE. (example_files/FEMALE_INFERT_NEW.chr6.149730382-152730382.susie.snp)
+--file=FILE
+		Results files from susie (example_files/FEMALE_INFERT_NEW.chr6.149730382-152730382.susie.snp).
 
---annofile	Variant annotation file including most severe consequence and rsid.
+--annofile=ANNOFILE
+		Variant annotation file including most severe consequence and rsid columns .
 
---geneFile	File with gene information. (example_files/Gene_data_for_locuszoomplot)
+--geneFile=GENEFILE
+		File with gene information (example_files/Gene_data_for_locuszoomplot.txt).
 
---PlotName	Prefix for the plot's name.
+--PlotName=PLOTNAME
+		Prefix for the plots name.
 
 
 Optional fields:
 
---Nrows	The number of rows for genes. Default is 4. (optional)
+--Nrows=NROWS
+		Number of rows for genes. Default is 4.
 
---proteinCodingOnly	Whether to print only protein-coding genes. The default is TRUE. (optional)
+--PlotTitle=PLOTTITLE
+		Title to give for a plot (will be plotted in italics). Default is empty.
 
---help Show this help message and exit
+--proteinCodingOnly=PROTEINCODINGONLY
+		Whether to print only protein coding genes. Default is TRUE.
+
+-h, --help
+		Show this help message and exit
+	
+
+	
